@@ -12,8 +12,8 @@ feature 'User can submit kdrama idea' do
     fill_in "Description", with: pitch_description
     click_on "Submit"
 
-      expect(page).to have_content pitch_title
-      expect(page).to have_content pitch_description
+    expect(page).to have_content pitch_title
+    expect(page).to have_content pitch_description
   end
 
   scenario "partial forms cannot be sumitted" do
@@ -30,7 +30,7 @@ feature 'User can submit kdrama idea' do
 
     expect new_idea_path
     expect(page).to_not have_content pitch_description
- end
+  end
 end
 
 

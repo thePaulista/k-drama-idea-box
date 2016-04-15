@@ -1,4 +1,8 @@
-<h1>Idea show page</h1>
-
-  <p><%= @idea.title %></p>
-  <p><%= @idea.description %></p>
+<h1>My Ideas</h1>
+<li>
+<p><%= @idea.title %></p>
+<p><%= @idea.description %></p>
+</li>
+<p><%= link_to "Edit Idea", edit_idea_path %></p>
+<p><%= link_to "Delete Idea", idea_path(@idea), method: :delete, data: {confirm: "Are you sure to delete this idea?"} %></p>
+<p><%= link_to "All Ideas", ideas_path %></p>
