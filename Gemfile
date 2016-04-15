@@ -36,10 +36,9 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'launchy'
+  gem 'pry'
+  gem 'shoulda-matchers'
 
-end
-
-group :development do
-  gem 'web-console', '~> 2.0'
 end
 
