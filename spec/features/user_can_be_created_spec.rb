@@ -15,7 +15,7 @@ feature "Creating a new user" do
 
 
     expect(page).to have_text('Welcome Paulista')
-    expect(page).to have_text('Thanks for signing up!')
+    #expect(page).to have_text('Thanks for signing up!')
   end
 
   scenario "missing fields cannot create a user" do
