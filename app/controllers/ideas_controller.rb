@@ -10,7 +10,7 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(idea_params)
     if @idea.save
-      redirect_to @idea
+      redirect_to @idea, notice: "Idea created!"
     else
       render :new
     end

@@ -8,9 +8,7 @@ feature 'User can edit an existing account' do
 
     click_link "Edit Account"
 
-    within('h1') {
-      expect(page).to have_content("Edit account")
-    }
+    expect(page).to have_content("Edit account")
 
     fill_in "Username", with: "newuser"
     fill_in "Email", with: "email@email.com"

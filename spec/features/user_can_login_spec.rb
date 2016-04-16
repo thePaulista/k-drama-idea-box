@@ -4,6 +4,10 @@ feature "User can log into their account" do
   scenario "registered user can login" do
     user = User.create!(user_attributes)
 
+    visit root_path
+
+    click_on "Log In"
+
     visit login_path
 
     fill_in "Username", with: "useduser"
