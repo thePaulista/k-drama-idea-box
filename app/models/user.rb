@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     format: /\A\S+@\S+\z/,
                     uniqueness: { case_sensitive: false }
-  validates :password, length: {minimum: 5, allow_blank: true } #allow blank in case the username alone is being updated
-  validates :password_digest, presence: true
-  validates :password_confirmation, presence: true
+  validates :password_digest, presence: true,
+                              length: {minimum: 5, allow_blank: true } #allow blank in case the username alone is being updated
+  validates :password_confirmation, presence: true, allow_blank: true
 end
