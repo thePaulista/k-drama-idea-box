@@ -8,7 +8,7 @@ feature "Creating a new user" do
 
     fill_in "Username",  with: "DramaQueen"
     fill_in "Password", with: "password"
-    fill_in "Confirm Password", with: "password"
+    fill_in "Password confirmation", with: "password"
 
     click_button "Create Account"
 
@@ -20,9 +20,10 @@ feature "Creating a new user" do
     visit root_url
 
     click_link "Sign Up"
+
     fill_in "Username", with: " "
     fill_in "Password", with: "password"
-    fill_in "Confirm Password", with: "password"
+    fill_in "Password confirmation", with: "password"
 
     click_button "Create Account"
 
@@ -37,7 +38,7 @@ feature "Creating a new user" do
     click_link "Sign Up"
     fill_in "Username", with: "user"
     fill_in "Password", with: "password"
-    fill_in "Confirm Password", with: "secrets"
+    fill_in "Password confirmation", with: "secrets"
 
     expect { click_button "Create Account" }.not_to change(User, :count)
   end
