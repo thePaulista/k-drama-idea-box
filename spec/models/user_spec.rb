@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
 
 
   it "requires a password and matching password confirmation" do
-    user = User.create!(username: "hedy", password: "password", password_confirmation: "password")
+    user = User.create!(username: "hedy", email: "hedy@example.com", password: "password", password_confirmation: "password")
 
     expect(user.valid?).to eq(true)
   end

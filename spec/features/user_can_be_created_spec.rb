@@ -6,13 +6,15 @@ feature "Creating a new user" do
 
     click_link 'Sign Up'
 
-    fill_in "Username",  with: "DramaQueen"
+    fill_in "Username",  with: "paulista"
+    fill_in "Email",  with: "user@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
 
     click_button "Create Account"
 
-    expect(page).to have_text('Welcome')  #this should be Dramaqueen, but username is returning nil
+
+    expect(page).to have_text('Welcome Paulista')
     expect(page).to have_text('Thanks for signing up!')
   end
 
@@ -22,6 +24,7 @@ feature "Creating a new user" do
     click_link "Sign Up"
 
     fill_in "Username", with: " "
+    fill_in "Email",  with: "user@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
 
@@ -37,6 +40,7 @@ feature "Creating a new user" do
 
     click_link "Sign Up"
     fill_in "Username", with: "user"
+    fill_in "Email",  with: "user@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "secrets"
 

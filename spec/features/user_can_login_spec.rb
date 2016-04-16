@@ -2,9 +2,7 @@ require "rails_helper"
 
 feature "User can log into their account" do
   scenario "registered user can login" do
-    user = User.create!(username: "useduser",
-                        password: "password",
-                        password_confirmation: "password")
+    user = User.create!(user_attributes)
 
     visit login_path
 
