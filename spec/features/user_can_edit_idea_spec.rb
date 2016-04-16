@@ -16,7 +16,7 @@ feature "User can edit their idea" do
 
     fill_in "Title", with:"Updated Title"
     fill_in "Description", with:"Updated Description"
-    click_on "Update Idea"
+    click_on "Submit"
 
     expect(page).to_not have_content "An Idea"
     expect(page).to have_content "Updated Title"
