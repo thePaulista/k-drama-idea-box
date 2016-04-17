@@ -6,13 +6,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
- #def authenticate
- #  if !signed_in?
- #    redirect_to new_session_path
- #  end
- #end
-
- #def signed_in?
- #  session[:username].present?
- #end
+  def require_signin
+    unless current_user
+      redirect_to new_session_url, alert: "Please sign in first!"
+    end
+  end
 end
+
+
