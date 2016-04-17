@@ -1,13 +1,14 @@
+<div class="center-block">
 <h1><%= @current_user.username.capitalize %>'s  Drama Idea</h1>
-<li>
+<p class="text-info">
   <p>Title:  <%= @idea.title %></p>
   <p>Synopsis:
   <br>  
   <br>
   <%= @idea.description %>
   </p>
-</li>
-
+</p>
+</div>
 <% content_for :sidebar do %> 
   <p>Genre</p>
   <ul>
@@ -20,4 +21,3 @@
 <p><%= link_to "Edit Idea", edit_idea_path %></p>
 <p><%= link_to "Delete Idea", idea_path(@idea), method: :delete, data: {confirm: "Are you sure to delete this idea?"} %></p>
 <p><%= link_to "All Ideas", ideas_path %></p>
-

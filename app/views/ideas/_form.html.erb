@@ -6,12 +6,11 @@
 <%= f.label :description %>
 <%= f.text_field :description %>
 
-<li>
+<p class="bg-warning">
 <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
-</li>
+</p>
 
-
-<%= f.submit "Submit" %>
+<button type="button" class="bt btn-success"><%= f.submit "Submit" %></button>
 
 <% end %>
 
