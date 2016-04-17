@@ -3,11 +3,14 @@
   <div id="masthead">
     <h4><%= link_to "Ideas", root_path %></h4>
     <nav>
-
       <p>
-<%= current_user.username %>
-    
-    </p>
+      <% if current_user %>
+        <%= link_to current_user.username, current_user %>
+      <% else %> 
+        <%= link_to "Log In", login_path %>
+        <%= link_to "Sign Up", signup_path %>
+      <% end %>
+      </p>
     </nav>
   </div>
-  </header>
+</header>
