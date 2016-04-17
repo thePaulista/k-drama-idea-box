@@ -1,4 +1,7 @@
 class IdeasController < ApplicationController
+  before_action :require_signin
+ # before_action :correct_user, only: [:create, :update, :destroy]
+
   def index
    @ideas = Idea.all
   end
@@ -8,7 +11,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
+   @idea = Idea.new(idea_params)
     if @idea.save
       redirect_to @idea, notice: "Idea created!"
     else
@@ -18,6 +21,7 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.find(params[:id])
+    @categories = @idea.categories
   end
 
   def edit
@@ -43,4 +47,9 @@ class IdeasController < ApplicationController
   def idea_params
     params.require(:idea).permit(:title, :description)
   end
+
+ # def correct_user
+ #   @idea = current_user.ideas.find_by(id: params[:id])
+ #   redirect_to root_url if @idea.nil?
+ # end
 end

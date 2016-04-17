@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416200640) do
+ActiveRecord::Schema.define(version: 20160417151118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categoricals", force: :cascade do |t|
+    t.integer  "idea_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categoricals", ["category_id"], name: "index_categoricals_on_category_id", using: :btree
+  add_index "categoricals", ["idea_id"], name: "index_categoricals_on_idea_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ideas", force: :cascade do |t|
     t.string   "title"
@@ -30,10 +46,13 @@ ActiveRecord::Schema.define(version: 20160416200640) do
     t.string   "username"
     t.string   "password_digest"
     t.string   "password_confirmation"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "email"
+    t.boolean  "admin",                 default: false
   end
 
+  add_foreign_key "categoricals", "categories"
+  add_foreign_key "categoricals", "ideas"
   add_foreign_key "ideas", "users"
 end

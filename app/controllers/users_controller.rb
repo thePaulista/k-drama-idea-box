@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @ideas = @user.ideas.all
+    @user = User.find(params[:id])
+    @ideas = @user.ideas
   end
 
   def create
