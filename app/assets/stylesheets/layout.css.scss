@@ -1,0 +1,11 @@
+@import "colors";
+
+body { 
+  color: $primary-text-color;
+  font-family: Helvetica, Arial;
+  }
+
+aside#sidebar {
+  width: 200px;
+  float: right;
+  }

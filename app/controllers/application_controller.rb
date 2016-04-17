@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_url, alert: "Please sign in first!"
     end
   end
+
+  def require_admin
+    unless current_user & current_user.admin?
+      redirect_to root_url, alert: "Illegal move!!"
+    end
+  end
 end
 
 

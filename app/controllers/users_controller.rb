@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_signin, except: [:new, :create]
-  before_action :require_correct_user, only: [:edit, :create, :destroy]
+  before_action :require_correct_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Account successfully updated!"
       redirect_to @user
     else
-     render :edit
+      render :edit
     end
   end
 
@@ -49,8 +49,6 @@ class UsersController < ApplicationController
 
   def require_correct_user
     @user = User.find(params[:id])
-    unless current_user == @user
-      redirect_to root_url
-    end
+    redirect_to root_url  unless current_user == @user
   end
 end
