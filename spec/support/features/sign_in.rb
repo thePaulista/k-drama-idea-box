@@ -5,4 +5,8 @@ module Features
     fill_in "Password", with: user.password
     click_on "Log In"
   end
+
+  def build_idea(idea)
+
+  end
 end

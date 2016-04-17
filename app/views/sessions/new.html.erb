@@ -1,9 +1,17 @@
 <%= form_for :session, url: login_path do |f| %>
+  <fieldset>
+    <p>
   <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.text_field :username, autofocus: true %>
+    </p>
+    <p>
   <%= f.label :password %>
   <%= f.password_field :password %>
+    </p>
+    <p>
   <%= f.submit "Log In" %>
+    </p>
+  </fieldset>
 <% end %>
 
 <p>New user?  <%= link_to "Sign up now!", signup_path %></p>

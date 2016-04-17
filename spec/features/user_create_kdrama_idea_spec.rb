@@ -2,12 +2,11 @@ require 'rails_helper'
 
 feature 'User can submit kdrama idea' do
   scenario 'visit a form to submit a kdrama submit' do
-    pitch_title = "Murderous Rampage in Joseon Dynasty"
-    pitch_description = "Historical drama set in Joseon dynasty"
+    user = User.create!(user_attributes)
 
-    visit ideas_path
+    sign_in(user)
 
-    click_on "I have an idea"
+    click_on "Create an Idea"
     fill_in "Title", with: pitch_title
     fill_in "Description", with: pitch_description
     click_on "Submit"

@@ -38,3 +38,6 @@ RSpec.describe User, type: :model do
     expect(user.password_digest.present?).to eq(true)
   end
 end
+
+
+#TODO add should validation for has many idea

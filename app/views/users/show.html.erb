@@ -1,19 +1,24 @@
 <%= link_to 'Log Out', logout_path, method: :delete %>
 
-<%= flash[:notice] %>
 
 <h1>Welcome <%= @user.username.capitalize %></h1>
 
 <h2><%= @user.email %>
 <h4>Member Since <%= @user.created_at.strftime("%B %Y") %></h4>
 
-<footer>
-  <nav>
-    <%= link_to 'Edit Account', edit_user_path(@user), class: 'button' %>
+
+
+  <fieldset>
+    <p>
+    <%= link_to 'Create an Idea', new_idea_path(@user) %>
+    </p>
+    <p>
+    <%= link_to 'Edit Account', edit_user_path(@user) %>
+    </p>
+    <p>
     <%= link_to 'Delete Account', @user,
       method: :delete,
-      data: { confirm: 'Are you sure you want to permanently delete your account?' },
-      class: 'button' %>
-</nav>
-
-</footer>
+      data: { confirm: 'Are you sure you want to permanently delete your account?' }
+      %>
+    </p>
+  </fieldset>

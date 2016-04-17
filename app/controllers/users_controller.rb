@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # before_filter :authenticate
 
   def new
     @user = User.new
@@ -7,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @ideas = @user.ideas.all
   end
 
   def create
