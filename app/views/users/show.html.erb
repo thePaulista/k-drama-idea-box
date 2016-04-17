@@ -20,6 +20,7 @@
 
     <% if current_user == @user %>
   <%= link_to 'Create an Idea', new_idea_path(@user) %>
+  <%= link_to 'All ideas ', ideas_path(@user) %>
     <%= link_to 'Edit Account', edit_user_path(@user), class: 'button' %>
     <%= link_to 'Delete Account', @user,
       method: :delete,

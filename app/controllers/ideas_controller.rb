@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :require_signin
- # before_action :correct_user, only: [:create, :update, :destroy]
+  before_action :correct_user, only: [:create, :update, :destroy]
 
   def index
    @ideas = Idea.all
@@ -48,8 +48,8 @@ class IdeasController < ApplicationController
     params.require(:idea).permit(:title, :description, category_ids: [])
   end
 
- # def correct_user
- #   @idea = current_user.ideas.find_by(id: params[:id])
- #   redirect_to root_url if @idea.nil?
- # end
+  def correct_user
+    @idea = current_user.ideas.find_by(id: params[:id])
+    redirect_to root_url if @idea.nil?
+  end
 end
