@@ -1,25 +1,25 @@
 <%= form_for @user do |f| %> 
-  <%= render "shared/errors", object @user %>
-  <fieldset>
-    <ol>
-      <li>
-        <%= f.label :username %>
-        <%= f.text_field :username %> <br>
-      </li>
-      <li>
-        <%= f.label :email %>
-        <%= f.text_field :email %> <br>
-      </li>
-      <li>
-        <%= f.label :password %>
-        <%= f.password_field :password %> <br>
-      </li>
-      <li>
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %> <br>
-      </li>
-    </ol>
-  </fieldset>
+<%= render "shared/errors", object: @user %>
+<fieldset>
+  <ol>
+    <li>
+  <%= f.label :username %>
+  <%= f.text_field :username, autofocus: true%> <br>
+    </li>
+    <li>
+  <%= f.label :email %>
+  <%= f.text_field :email %> <br>
+  </li>
+  <li>
+  <%= f.label :password %>
+  <%= f.password_field :password %> <br>
+  </li>
+  <li>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %> <br>
+  </li>
+  </ol>
+</fieldset>
   <p>
   <% if @user.new_record? %> 
     <%= f.submit "Create Account" %>

@@ -1,3 +1,13 @@
 <h1>KDrama Idea Box</h1>
 
-
+<table class="table">
+<h1>All Ideas</h1>
+<thead>
+<% @ideas.each do |idea| %>
+  <tr>
+    <th><%= link_to idea.title, idea_path(idea) %></th>
+    <th>  <%= idea.description %></th>
+  </tr>
+<% end %>
+</thead>
+</table>

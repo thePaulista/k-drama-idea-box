@@ -1,16 +1,19 @@
-
 <header id="page-header">
-  <div id="masthead">
-    <nav>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
       <p>
+      <ol class="breadcrumb">
       <% if current_user %>
-        <%= link_to current_user.username, current_user %>
-        <%= link_to "Log Out", logout_path, method: :delete, class: "button" %> 
+
+        <li><%= link_to current_user.username, current_user %></li>
+        <li><%= link_to "Log Out", logout_path, method: :delete, class: "button" %></li> 
       <% else %> 
-        <%= link_to "Log In", login_path %>
-        <%= link_to "Sign Up", signup_path %>
+        <li>  <%= link_to "Log In", login_path %></li>
+        <li> <%= link_to "Sign Up", signup_path %></li>
       <% end %>
+      </ol>
       </p>
-    </nav>
   </div>
+    </nav>
 </header>
+

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :categories
   root to: "ideas#index"
 
   resources :ideas
+  resources :categories
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
