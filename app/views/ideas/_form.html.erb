@@ -2,18 +2,19 @@
   <%= render "shared/errors", object: @idea %>
   <fieldset>
     <ol>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <div class="form-group">
+      <%= f.text_field :title, :placeholder => "Title" %></br>
 
-      <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.text_field :description, :placeholder => "Synopsis", :rows => 10   %><br>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
 
-
+      <% if current_user.admin? %>
       <p class="bg-warning">
       <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
       </p>
+      <% end %>
 
-      <button type="button" class="bt btn-success"><%= f.submit "Submit" %></button>
+      </div>
     </ol>
   </fieldset>
 <% end %>
